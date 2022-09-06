@@ -28,7 +28,7 @@ const App = () => {
 
   function getSolutions() {
     if (text.length < NUMTILES * NUMTILES) return;
-    axios(`http://localhost:8080/board?letters=${text}&dimensions=${NUMTILES}`,
+    axios(`${process.env.APIURL}?letters=${text}&dimensions=${NUMTILES}`,
       {
         method: "GET",
       }
