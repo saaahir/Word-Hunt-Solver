@@ -34,7 +34,7 @@ const App = () => {
       }
     )
       .then(res => {
-        const answers = res.data;
+        const answers = res.body;
         setAnswers(answers);
         setWords(Object.keys(answers).sort(function (a, b) { return b.length - a.length }))
       }).catch(() => {
