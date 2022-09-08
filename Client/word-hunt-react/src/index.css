@@ -7,7 +7,7 @@
 
   --shadow-color: #5c655e;
   --primary-width: 7vw;
-  --secondary-width: 10vw;
+  --secondary-width: 13vw;
 }
 
 body,
@@ -175,6 +175,10 @@ input::placeholder {
     gap: 25px
   }
 
+  .outerLayout {
+    font-size: 3vh;
+  }
+
   .tile {
     width: var(--secondary-width);
     height: var(--secondary-width);
@@ -187,6 +191,7 @@ input::placeholder {
   .solutions {
     height: calc(var(--secondary-width) * 4);
     width: calc(var(--secondary-width) * 4);
+    font-size: 3.5vw;
   }
 
   .links h3 {
