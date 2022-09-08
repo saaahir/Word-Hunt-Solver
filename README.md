@@ -1,9 +1,9 @@
 # Word Hunt Solver
 ## Visit the website at [Word Hunt Solver](https://word-hunt-solver.vercel.app)
 
-- ### Created using **Javascript & ReactJS Framework** for the frontend UI components and **Java & Spring Boot Framework** for the server. 
-- ### Hosted the solution logic as lambda function on **AWS** 
-- ### Hosted the front end website on **Vercel** 
+- Created using **Javascript & ReactJS Framework** for the frontend UI components and **Java & Spring Boot Framework** for the server. 
+- Hosted the solution logic as lambda function on **AWS** 
+- Hosted the front end website on **Vercel** 
 
 
 ## To Use:
@@ -13,3 +13,5 @@
 - Rinse and repeat!
 
 ## Demo
+https://user-images.githubusercontent.com/65325131/189183733-ab389b3e-827d-4222-bb0a-b7c461bad150.mov
+
