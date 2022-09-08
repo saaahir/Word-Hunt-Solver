@@ -28,13 +28,13 @@ const App = () => {
 
   function getSolutions() {
     if (text.length < NUMTILES * NUMTILES) return;
-    axios(`${process.env.APIURL}?letters=${text}&dimensions=${NUMTILES}`,
+    axios(`${process.env.REACT_APP_APIURL}?letters=${text}&dimensions=${NUMTILES}`,
       {
         method: "GET",
       }
     )
       .then(res => {
-        const answers = res.body;
+        const answers = res.data;
         setAnswers(answers);
         setWords(Object.keys(answers).sort(function (a, b) { return b.length - a.length }))
       }).catch(() => {
