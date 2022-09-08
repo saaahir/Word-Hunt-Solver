@@ -1,10 +1,10 @@
-package com.saahir.app.WHRestApi;
+package com.saahir.wordhunt.springcloudwhsolver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WhRestApiApplicationTests {
+class SpringCloudWhsolverApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.saahir.app.WHRestApi.Controller.wordHuntSolver;
+package com.saahir.wordhunt.springcloudwhsolver.Controller.wordHuntSolver;
 
 public class Trie {
     private TrieNode root = new TrieNode();

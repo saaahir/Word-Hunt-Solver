@@ -1,16 +1,32 @@
-package com.saahir.app.WHRestApi.Controller.wordHuntSolver;
+package com.saahir.wordhunt.springcloudwhsolver.Controller.wordHuntSolver;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.*;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.services.s3.transfer.PresignedUrlDownload;
+import com.amazonaws.services.s3.transfer.internal.PresignedUrlDownloadImpl;
+import com.amazonaws.util.IOUtils;
+
+
 public class Solver {
     public static final int MINWORDLENGTH = 2;
 
-    public static Trie buildTrie(String pathname) {
-        File file = new File(pathname);
+    public static Trie buildTrie(File file) {
+//        File file = new File(pathname);
         Trie trie = new Trie();
         try {
             Scanner fileReader = new Scanner(file);
@@ -28,10 +44,44 @@ public class Solver {
 
     }
 
+    public static Trie buildTrieNew() {
+//        Trie trie = new Trie();
+
+        String accessKey = System.getenv("accessKey");
+        String secretKey = System.getenv("secretKey");
+        String bucketName = "my-whs-bucket";
+        AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+        AmazonS3 client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials)).withRegion("us-east-2").build();
+//        S3Object obj = client.getObject(bucketName, "dict.txt");
+        File localDict = new File("/tmp/localDict.txt");
+        ObjectMetadata obj = client.getObject(new GetObjectRequest(bucketName, "dict.txt"), localDict);
+
+        return buildTrie(localDict);
+
+
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(
+//                obj.getObjectContent()));
+
+//        String line;
+//        try {
+//            while ((line = reader.readLine()) != null) {
+//                String word = line.toLowerCase();
+//                trie.addWord(word);
+//            }
+//            reader.close();
+//        }
+//        catch (Exception e) {
+//         e.printStackTrace();
+//        }
+
+//        return trie;
+    }
+
     public static HashMap<String, List<Integer>> solve(String letters, int numTiles) {
         if (letters.length() < numTiles * numTiles)
             return null;
-        Trie trie = buildTrie("src/main/java/com/saahir/app/WHRestApi/Controller/wordHuntSolver/Resources/dict.txt");
+//        Trie trie = buildTrie("src/main/java/com/saahir/wordhunt/springcloudwhsolver/Controller/wordHuntSolver/Resources/dict.txt");
+        Trie trie = buildTrieNew();
         HashMap<String, List<Integer>> map = new HashMap<>();
         Character[][] board = new Character[numTiles][numTiles];
         boolean[][] visited = new boolean[numTiles][numTiles];
@@ -72,7 +122,7 @@ public class Solver {
         visited[row][col] = true;
 
         if (current.length() > MINWORDLENGTH && node.getIsFullWord())
-            map.put(current, pathList);
+            map.put("" + current + "", pathList);
 
         // Iterate our node and string
         Character letter = board[row][col];

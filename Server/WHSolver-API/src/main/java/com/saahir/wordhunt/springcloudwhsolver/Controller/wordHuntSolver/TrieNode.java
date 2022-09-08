@@ -1,4 +1,4 @@
-package com.saahir.app.WHRestApi.Controller.wordHuntSolver;
+package com.saahir.wordhunt.springcloudwhsolver.Controller.wordHuntSolver;
 
 import java.util.HashMap;
 
