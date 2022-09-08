@@ -1,7 +1,7 @@
 # Word Hunt Solver
 ## Visit the website at [Word Hunt Solver](https://word-hunt-solver.vercel.app)
 
-- Created using **Javascript & ReactJS Framework** for the frontend UI components and **Java & Spring Boot Framework** for the server. 
+- Created using **Javascript & ReactJS Framework** for the frontend UI components and **Java & Spring Boot Framework** for the backend logic. 
 - Hosted the solution logic as lambda function on **AWS** 
 - Hosted the front end website on **Vercel** 
 
