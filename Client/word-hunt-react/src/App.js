@@ -68,7 +68,7 @@ const App = () => {
       <div className="header">
         <div className="innerHeader">
           <div className="logo">
-            <a href="http://localhost:3000/">
+            <a href="https://word-hunt-solver.vercel.app">
               <h3>WHS</h3>
             </a>
           </div>
@@ -83,7 +83,7 @@ const App = () => {
             </div>
 
             <div className="githubLink">
-              <a href="https://github.com/saaahir">
+              <a href="https://github.com/saaahir/Word-Hunt-Solver">
                 <img src={githublogo} alt="" />
                 <h3>GitHub</h3>
 
