@@ -1,17 +1,36 @@
-# Word Hunt Solver
-## Visit the website at [Word Hunt Solver](https://word-hunt-solver.vercel.app)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-- Created using **Javascript & ReactJS Framework** for the frontend UI components and **Java & Spring Boot Framework** for the backend logic. 
-- Hosted the solution logic as lambda function on **AWS** 
-- Hosted the front end website on **Vercel** 
+## Getting Started
 
+First, run the development server:
 
-## To Use:
-- Simply enter the board that you want to solve into the input field
-- Press solve and watch as the solutions roll in! :)
-- Hover over each word to see the path on the board 
-- Rinse and repeat!
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Demo
-https://user-images.githubusercontent.com/65325131/189183733-ab389b3e-827d-4222-bb0a-b7c461bad150.mov
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
