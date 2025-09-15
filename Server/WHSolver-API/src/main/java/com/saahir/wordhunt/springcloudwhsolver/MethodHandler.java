@@ -28,6 +28,7 @@ public class MethodHandler implements RequestStreamHandler {
             Object obj = parser.parseObject().get("rawQueryString");
             if (obj != null) {
                 queryString = obj.toString();
+                System.out.println("rawQueryString: " + queryString);
                 String[] qsarr = queryString.split("&");
                 String letters = qsarr[0].split("=")[1];
                 int dimensions = Integer.parseInt(qsarr[1].split("=")[1]);
