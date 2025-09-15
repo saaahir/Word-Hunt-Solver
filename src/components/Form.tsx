@@ -3,14 +3,14 @@ import { useState } from "react";
 type FormProps = {
     handleFormChange: (value: string) => void;
     handleSubmission: () => void;
-    resetBoard: () => void; // New prop to reset answers/board
+    resetBoard: (clearBoard: boolean) => void; // New prop to reset answers/board
 };
 
 
 const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => {
 
     function handleClear() {
-        resetBoard();        // Clear answers and board state
+        resetBoard(true);        // Clear answers and board state
         // Clear input text box
         const inputElement = document.querySelector('input[placeholder="Enter Board"]') as HTMLInputElement;
         console.log(inputElement);
@@ -26,7 +26,7 @@ const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => 
 
         // Reset if input is empty
         if (value.length === 0) {
-            resetBoard();
+            resetBoard(true);
         }
 
         handleFormChange(value);
@@ -34,7 +34,10 @@ const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => 
 
     return (
         <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmission();
+            }}
             className="text-center bg-slate-200 p-4 rounded-lg shadow-md font-semibold mt-[50px] lg:m-0"
         >
             <input
@@ -42,6 +45,11 @@ const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => 
                 onChange={updateBoard}
                 value={undefined} // or pass a board state if needed
                 className="px-4 py-2 rounded-md bg-slate-200 focus:outline-none text-black"
+                onKeyDown={(e) => {
+                    if (e.key === "Backspace") {
+                        resetBoard(false);
+                    }
+                }}
             />
 
             {/* Buttons container */}

@@ -24,8 +24,10 @@ export default function Page() {
     setAnswers(solveBoard(board, numRows, trie, 3));
   };
 
-  const resetBoard = () => {
-    setBoard("");
+  const resetBoard = (clearBoard: boolean) => {
+    if (clearBoard) {
+      setBoard("");
+    }
     setAnswers(new Map());
     setPath([]);
   };
