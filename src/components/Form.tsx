@@ -5,11 +5,18 @@ type FormProps = {
     handleSubmission: () => void;
     resetBoard: (clearBoard: boolean) => void;
     showNextSolution: () => void;
+    inputValue: string;
+    setInputValue: (value: string) => void;
 };
 
-const Form = ({ handleFormChange, handleSubmission, resetBoard, showNextSolution }: FormProps) => {
-    const [inputValue, setInputValue] = useState("");
-
+const Form = ({
+    handleFormChange,
+    handleSubmission,
+    resetBoard,
+    showNextSolution,
+    inputValue,
+    setInputValue
+}: FormProps) => {
     function handleClear() {
         resetBoard(true);
         setInputValue("");

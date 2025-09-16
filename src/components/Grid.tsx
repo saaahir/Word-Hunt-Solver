@@ -45,16 +45,17 @@ export default function Grid({ board, path }: GridProps) {
     return (
         <div
             id="grid"
-            className="grid grid-cols-4 gap-4 mt-2 p-4 bg-boardGreen border-borderGreen border-8 rounded-2xl relative"
+            // className="grid grid-cols-4 gap-4 mt-2 p-4 bg-boardGreen border-borderGreen border-8 rounded-2xl relative"
+            className="grid grid-cols-4 gap-4 mt-2 p-4 bg-boardGreen border-borderGreen border-8 rounded-2xl relative w-[353px] h-[353px] lg:w-[484px] lg:h-[480px]"
         >
             {Array.from({ length: 16 }).map((_, idx) => (
                 <div
                     id={`idx${idx}`}
                     key={idx}
                     className={`${styles[idx]} bg-cover aspect-square 
-            flex flex-col items-center justify-center 
-            w-16 md:w-24 text-3xl md:text-6xl text-center font-bold 
-            border rounded-md shadow-xl text-black`}
+                        flex items-center justify-center 
+                        w-full text-xl sm:text-xl md:text-2xl lg:text-6xl text-center font-bold 
+                        border rounded-md shadow-xl text-black`}
                 >
                     {board.length <= idx ? "?" : board.charAt(idx)}
                 </div>
@@ -72,7 +73,7 @@ export default function Grid({ board, path }: GridProps) {
                         strokeLinecap="round"
                         style={{
                             strokeDasharray: 30,
-                            animation: "dash 3s linear infinite",
+                            animation: "dash 4s linear infinite",
                             strokeDashoffset: 1000,
                         }}
                     />

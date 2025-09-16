@@ -13,7 +13,9 @@ const SolutionDisplay = ({ answers, handleMouseEvent }: SolutionDisplayProps) =>
     ]);
 
     return (
+        // <div className="bg-boardGreen border-borderGreen border-8 rounded-2xl mt-2 flex flex-col items-center overflow-y-auto w-[353px] h-[353px] lg:w-[484px] lg:h-[480px]">
         <div className="bg-boardGreen border-borderGreen border-8 rounded-2xl mt-2 flex flex-col items-center overflow-y-auto w-[353px] h-[353px] lg:w-[484px] lg:h-[480px]">
+
             {Array.from(answers.entries()).map(([word, pathlist], idx) => (
                 <div
                     key={word}
