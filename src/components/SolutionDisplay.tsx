@@ -1,5 +1,7 @@
 import { SolutionDisplayProps } from "@/types/components";
 
+
+
 const SolutionDisplay = ({ answers, handleMouseEvent }: SolutionDisplayProps) => {
     const pointsMap = new Map<number, number>([
         [3, 300],
@@ -11,11 +13,13 @@ const SolutionDisplay = ({ answers, handleMouseEvent }: SolutionDisplayProps) =>
     ]);
 
     return (
+        // <div className="bg-boardGreen border-borderGreen border-8 rounded-2xl mt-2 flex flex-col items-center overflow-y-auto w-[353px] h-[353px] lg:w-[484px] lg:h-[480px]">
         <div className="bg-boardGreen border-borderGreen border-8 rounded-2xl mt-2 flex flex-col items-center overflow-y-auto w-[353px] h-[353px] lg:w-[484px] lg:h-[480px]">
-            {Array.from(answers.entries()).map(([word, pathlist]) => (
+
+            {Array.from(answers.entries()).map(([word, pathlist], idx) => (
                 <div
                     key={word}
-                    onMouseOver={() => handleMouseEvent(pathlist)}
+                    onMouseOver={() => handleMouseEvent(pathlist, idx)}
                     className="bg-[url('/resources/wood.png')] bg-cover bg-center rounded-md my-1 flex flex-row font-bold text-lg border shadow-xl text-center w-[98%] place-content-between hover:opacity-60 text-black"
                 >
                     <div>{word}</div>

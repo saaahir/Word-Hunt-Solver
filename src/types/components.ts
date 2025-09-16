@@ -1,4 +1,4 @@
 export type SolutionDisplayProps = {
     answers: Map<string, number[]>;
-    handleMouseEvent: (path?: number[]) => void;
+    handleMouseEvent: (path: number[], idx: number) => void;
 };
