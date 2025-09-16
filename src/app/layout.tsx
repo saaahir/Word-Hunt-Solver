@@ -31,7 +31,6 @@ export default function RootLayout({
           backgroundSize: "cover",
           backgroundRepeat: "repeat",
           backgroundPosition: "center",
-
         }}
       >
 
