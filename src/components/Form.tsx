@@ -56,10 +56,6 @@ const Form = ({
                     if (e.key === "Backspace") {
                         resetBoard(false);
                     }
-                    if (e.key === " ") {
-                        e.preventDefault();
-                        showNextSolution();
-                    }
                 }}
                 pattern="[A-Za-z]{0,16}"
                 autoComplete="off"
