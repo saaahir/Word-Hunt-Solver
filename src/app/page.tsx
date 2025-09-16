@@ -7,6 +7,7 @@ import SolutionDisplay from "@/components/SolutionDisplay";
 import { Trie } from "@/lib/trie";
 import { loadDictionary } from "@/lib/loadDictionary";
 import { solveBoard } from "@/lib/solver";
+import posthog from "posthog-js";
 
 export default function Page() {
   const [board, setBoard] = useState("");
@@ -26,6 +27,12 @@ export default function Page() {
     if (!trie) return;
     const newAnswers = solveBoard(board, numRows, trie, 3)
     setAnswers(newAnswers);
+
+    posthog.capture("board_submitted", {
+      board,
+      answers_count: newAnswers.size,
+      timestamp: new Date().toISOString(),
+    });
 
     const firstEntry = newAnswers.entries().next();
     if (!firstEntry.done) {
