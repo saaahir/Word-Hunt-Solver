@@ -16,22 +16,23 @@ export default function Grid({ board, path }: GridProps) {
             return;
         }
 
-        const gridRect = document.querySelector<HTMLDivElement>("#grid")?.getBoundingClientRect();
-        if (!gridRect) return;
+        const gridElem = document.getElementById("grid");
+        if (!gridElem) return;
 
         const newPoints: string[] = [];
 
         for (let i = 0; i < path.length; i++) {
-            const tileRect = document.querySelector<HTMLDivElement>(`#idx${path[i]}`)?.getBoundingClientRect();
-            if (tileRect) {
-                const x = tileRect.left - gridRect.left + tileRect.width / 2;
-                const y = tileRect.top - gridRect.top + tileRect.height / 2;
+            const tileElem = document.getElementById(`idx${path[i]}`);
+            if (tileElem && gridElem) {
+                const x = tileElem.offsetLeft + tileElem.offsetWidth / 2;
+                const y = tileElem.offsetTop + tileElem.offsetHeight / 2;
                 newPoints.push(`${x},${y}`);
             }
         }
 
         setPoints(newPoints.join(" "));
     }, [path]);
+
 
     // Initialize all cells with wood background
     const styles = Array.from({ length: 16 }, () => "bg-[url('/resources/wood.png')]");

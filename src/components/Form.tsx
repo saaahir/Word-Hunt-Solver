@@ -4,9 +4,10 @@ type FormProps = {
     handleFormChange: (value: string) => void;
     handleSubmission: () => void;
     resetBoard: (clearBoard: boolean) => void;
+    showNextSolution: () => void;
 };
 
-const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => {
+const Form = ({ handleFormChange, handleSubmission, resetBoard, showNextSolution }: FormProps) => {
     const [inputValue, setInputValue] = useState("");
 
     function handleClear() {
@@ -23,6 +24,8 @@ const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => 
         // Reset if input is empty
         if (value.length === 0) {
             resetBoard(true);
+        } else if (value.length < 16) {
+            resetBoard(false);
         }
 
         handleFormChange(value);
@@ -45,6 +48,10 @@ const Form = ({ handleFormChange, handleSubmission, resetBoard }: FormProps) => 
                 onKeyDown={(e) => {
                     if (e.key === "Backspace") {
                         resetBoard(false);
+                    }
+                    if (e.key === " ") {
+                        e.preventDefault();
+                        showNextSolution();
                     }
                 }}
                 pattern="[A-Za-z]{0,16}"
